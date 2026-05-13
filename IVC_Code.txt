@@ -1,0 +1,117 @@
+﻿#4 install git & configure user credentials
+git --version
+git config --global user.name "Shreha Kumari"
+git config --global user.email "shrehakumaribsccse25@rvu.edu.in" 
+git config --list
+
+
+#5 initialize a new git repo & commit a sample file
+mkdir my-project
+cd my-project
+git init
+echo "Hello Git!" > sample.txt
+git add sample.txt
+git commit -m "Initial commit: file added"
+
+
+#6 view repo status & commit history using git status & git log
+git status
+git log
+
+
+#7 create & link a local repo with GitHub & push commits using git push
+git remote add origin https://github.com/user/repo.git
+git branch -M main
+git push -u origin main
+
+
+#8 pull updates from a remote repo & manage repo synchronization
+git pull origin main
+git fetch origin
+git merge origin/main
+
+
+#9 fork & clone a GitHub repo, create pull request with changes
+git branch new-feature
+git checkout new-feature
+git checkout main
+git branch -d new-feature
+git clone https://github.com/shrehakumari/CS1105.git
+cd CS1105/
+git remote add upstream https://github.com/shrehakumari/CS1105.git
+git checkout -b fix-typo
+touch README.md
+git add README.md
+git commit -m "Fix typo in README"
+git push origin fix-typo
+
+
+#10 create feature branches, switch them & merge them using git
+git init merge-conflict-demo
+cd merge-conflict-demo
+echo "Once upon a time, there was a coder." > story.txt
+git add story.txt
+git commit -m "Initial commit with story"
+git checkout -b feature-A
+echo "They loved working with git." >> story.txt
+git commit -am "Changes by feature-A"
+git checkout -b feature-B
+echo "They enjoyed solving puzzles." >> story.txt
+git commit -am "Changes by feature-B"
+
+
+#11 simulate & resolve a merge conflict in a collaborative project setup
+git checkout master
+git merge feature-A
+git merge feature-B
+git add story.txt
+git commit -m "Merge conflict resolved"
+# also open file & remove >>> feature-A <<< HEAD <<< feature-B
+
+
+#12 use git stash to save and apply temporary changes during development
+git checkout -b future-login
+echo "// temporary changes" > hello.txt
+git stash
+git stash list
+git stash pop
+
+
+#13 rebase a feature branch onto main branch using git rebase
+echo "Welcome" > hello.txt
+git checkout -b feature-payment
+git checkout main
+echo "Update" >> hello.txt
+git add main.txt
+git commit -m "Update in main"
+git checkout feature-payment
+git rebase main
+
+
+#14 tag specific commits using git tag and cherry-pick selected commits into another branch
+git checkout -b feature-analytics
+echo "bug fix" > analytics.js
+git add analytics.js
+git commit -m "Fix bug in analytics module" 
+#(Note commit has eg-3d68f57)
+git checkout main
+git cherry-pick 3d68f57
+#creating light weight tag
+git tag v1.0
+git tag
+#creating annotated tag
+git tag -a v1.1 -m "Release version 1.1 with bug fixes"
+git show v1.1
+#pushing tag to remote
+git push origin v1.1
+git push origin --tags
+git checkout v1.0
+
+
+#15 setup copilot in VS Code & generate code for simple functions
+git ✓
+VS Code ✓
+Login VS Code with GitHub account
+Extensions → GitHub Copilot ✓
+Code file open ✓✓
+Preferences → Copilot → adjust settings
