@@ -115,3 +115,53 @@ Login VS Code with GitHub account
 Extensions → GitHub Copilot ✓
 Code file open ✓✓
 Preferences → Copilot → adjust settings
+
+1.a)git clone https://github.com/instructor/clone-task.git
+cd clone-task
+b)git config --global user.name "Your Name"
+git config --global user.email "yourmail@example.com"
+c)git config --list
+
+2.a)mkdir my-portfolio-site
+cd my-portfolio-site
+git init
+b)touch index.html style.css script.js
+git add .
+git commit -m "Added portfolio files"
+git branch -M main
+git remote add origin https://github.com/yourusername/my-portfolio-site.git
+git push -u origin main
+c)# GitHub Pages is enabled from GitHub website:
+# Repository → Settings → Pages → Source → main branch → Save
+
+3.a)touch auth.html
+git add auth.html
+git commit -m "Added auth file"
+git checkout -b dev-login
+git checkout main
+git checkout -b dev-register
+b)In dev-login
+git checkout dev-login
+echo "Login Feature" >> auth.html
+git add auth.html
+git commit -m "Added login feature"
+
+In dev-register
+git checkout dev-register
+echo "Register Feature" >> auth.html
+git add auth.html
+git commit -m "Added register feature"
+c)git checkout main
+git merge dev-login
+git merge dev-register
+
+Resolve conflict manually in auth.html, then run:
+git add auth.html
+git commit -m "Resolved merge conflict"
+
+4.a)touch transpose.py
+b)touch transpose_copilot.py
+c)git checkout -b transpose-basic
+git add transpose.py
+git commit -m "Added basic transpose solution"
+
